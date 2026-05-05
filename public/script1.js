@@ -1,0 +1,1 @@
+function mult(){var e=document.getElementById("first_num").value,n=document.getElementById("second_num").value;document.getElementById("result").innerHTML=""!==e&&""!==n?"Результат: "+e*n:"Будь ласка, введіть обидва числа"}
