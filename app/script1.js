@@ -1,10 +1,6 @@
-function mult() {
-    let num1 = document.getElementById("first_num").value;
-    let num2 = document.getElementById("second_num").value;
-    
-    if (num1 !== "" && num2 !== "") {
-        document.getElementById("result").innerHTML = "Результат: " + (num1 * num2);
-    } else {
-        document.getElementById("result").innerHTML = "Будь ласка, введіть обидва числа";
+document.getElementById("ageButton").onclick = function() {
+    var years = prompt("Скільки вам років?", 32);
+    if (years !== null) {
+        alert("Вам " + years + " років!");
     }
-}
+};

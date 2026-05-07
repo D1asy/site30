@@ -1,1 +1,1 @@
-function mult(){var e=document.getElementById("first_num").value,n=document.getElementById("second_num").value;document.getElementById("result").innerHTML=""!==e&&""!==n?"Результат: "+e*n:"Будь ласка, введіть обидва числа"}
+document.getElementById("ageButton").onclick=function(){var t=prompt("Скільки вам років?",32);null!==t&&alert("Вам "+t+" років!")};
