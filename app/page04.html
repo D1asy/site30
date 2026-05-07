@@ -4,77 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Завдання №4 - Лічильник символів</title>
-    <script src="https://jquery.com"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f7f6;
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
         }
-        .container {
+        .card {
             background: white;
             padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
             width: 350px;
             text-align: center;
-        }
-        label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: bold;
-            color: #333;
         }
         textarea {
             width: 100%;
             height: 100px;
-            padding: 12px;
-            border: 2px solid #ddd;
-            border-radius: 10px;
-            font-size: 16px;
-            resize: none; 
+            margin: 15px 0;
+            padding: 10px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            resize: none;
             box-sizing: border-box;
-            transition: border-color 0.3s;
+            font-size: 16px;
         }
         textarea:focus {
-            outline: none;
             border-color: #007bff;
+            outline: none;
         }
-        .counter-text {
-            margin-top: 15px;
-            font-size: 14px;
-            color: #666;
-        }
-        #rchars {
+        .result {
+            color: #d9534f;
             font-weight: bold;
-            color: #d9534f; 
-            font-size: 1.1em;
         }
-        .back-btn {
+        .back {
+            display: block;
             margin-top: 20px;
-            display: inline-block;
             text-decoration: none;
             color: #007bff;
-            font-size: 0.9em;
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
+<div class="card">
     <form> 
-        <label>Максимум 25 символів:</label>
-        <textarea id="textarea" placeholder="Почніть писати..."></textarea> 
-        <div class="counter-text">
-            <span id="rchars">25</span> символів залишилося.
-        </div>
+        <label><strong>Максимум 25 символів:</strong></label><br> 
+        <textarea id="textarea" placeholder="Введіть текст..."></textarea> <br>
+        <span id="rchars">25</span> символів залишилося.
     </form>
-    <a href="index.html" class="back-btn">← Повернутися на головну</a>
+    <a href="index.html" class="back">← Повернутися на головну</a>
 </div>
 
 <script>
@@ -82,13 +69,14 @@
         var maxLength = 25;
 
         $('#textarea').on('input keyup', function() { 
-            var currentLength = $(this).val().length;
-            var textRemaining = maxLength - currentLength; 
+            var val = $(this).val();
+            var currentLength = val.length;
             
-            $('#rchars').text(textRemaining); 
+            var textlen = maxLength - currentLength; 
+            $('#rchars').text(textlen); 
             
             if(currentLength >= maxLength) {
-                $(this).val($(this).val().substring(0, maxLength));
+                $(this).val(val.substring(0, maxLength));
                 $('#rchars').text(0);
             }
         });
